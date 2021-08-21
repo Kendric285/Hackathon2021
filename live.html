@@ -3,16 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="/css/boilerplate.css">
+  <title>Live Chat</title>
 </head>
 <body>
-  <button onclick="location.href='index.html'" type="button">Go back</button>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <div class="navbar">
+  <a href="/index.html">Home</a>
+  <a href="/live.html">Chat</a>
+  <div class="dropdown">
+    <button class="dropbtn">Learn
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="header">
+        <h2>Javascript</h2>
+      </div>   
+      <div class="row">
+        <div class="column">
+          <h3>Variables</h3>
+          <a href="Variables/variables.html">Intro to Variables</a>
+          <a href="Variables/variables1.html">Variables 1</a>
+          <a href="Variables/variables2.html">Variables 2</a>
+        </div>
+        <div class="column">
+          <h3>Operators</h3>
+          <a href="Operators/operators.html">Intro to Operators</a>
+          <a href="Operators/operators1.html">Operators 1</a>
+          <a href="Operators/operators2.html">Operators 2</a>
+        </div>
+        <div class="column">
+          <h3>Functions</h3>
+          <a href="Functions/functions.html">Intro to functions</a>
+          <a href="Functions/functions1.html">functions 1</a>
+          <a href="Functions/functions2.html">functions 2</a>
+        </div>
+        <div class="column">
+          <h3>Objects</h3>
+          <a href="Objects/objects.html">Intro to Objects</a>
+          <a href="Objects/objects1.html">Objects 1</a>
+          <a href="Objects/objects2.html">Objects 2</a>
+        </div>
+        <div class="column">
+          <h3>Strings</h3>
+          <a href="strings/strings.html">Intro to Strings</a>
+          <a href="strings/strings1.html">Strings 1</a>
+          <a href="strings/strings2.html">Strings 2</a>
+        </div>
+          <div class="column">
+          <h3>Arrays</h3>
+          <a href="arrays/arrays.html">Intro to Arrays </a>
+          <a href="arrays/arrays1.html">Arrays 1</a>
+          <a href="arrays/arrays2.html">Arrays 2</a>
+        </div>
+      </div>
+    </div>
+    
+  </div> 
+  </div>
+
+  <div id = "allQuestions">
+
+  </div>
+ 
+
+  <div id = "quesitonContainer">
+    <div>
+      <label for="name">Name:</label>
+      <input id = "name" type="text">
+    </div>
+    <div>
+      <label for="question">Question</label>
+      <input id = "question" type="text">
+    </div>
+    <button id = "submitButton">Submit Question</button>
+
+   
+  </div>
+
+  
+
+
+  
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
-      https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
 
   <script>
     // Your web app's Firebase configuration
@@ -30,6 +109,7 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
   </script>
-<script src=""></script>  
+  
+  <script src="live.js" defer></script>  
 </body>
 </html>

@@ -1,6 +1,7 @@
 html, body{
   margin: 0;
-  background-color: #ccc;
+  background-color: rgb(171, 214, 255);
+  color: green;
 }
 
 * {
@@ -9,7 +10,7 @@ html, body{
 
 .header {
   text-align: center;
-  text-shadow: rgba(255, 0, 0, 0.4) .3rem .3rem;
+  text-shadow: rgb(146, 146, 146) .3rem .3rem;
   font-size: 4rem;
 }
 
@@ -20,7 +21,7 @@ html, body{
 
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(35, 89, 160);
   font-family: Arial, Helvetica, sans-serif;
 }
 
