@@ -7,18 +7,24 @@ let question = document.getElementById("question")
 
 const d = new Date();
 
+database.on("value", addIDs)
 
-function printValue(value) {
+function addIDs(value) {
     let info = value.val();
     let everything = Object.keys(info)
-    console.log(everything);
-    console.log(info)
-
-    for (i in info) {
-        let k = info[i];
-        console.log(k.NAME)
-       
+    let allButtons = document.querySelectorAll(".questionButton")
+    
+    for(i in allButtons){
+      allButtons[i].id = everything[i]
     }
+    // console.log(everything);
+    // console.log(info)
+
+    // for (i in info) {
+    //     let k = info[i];
+    //     console.log(k.NAME)
+       
+    // }
 }
 
 submitButton.onclick = function updateDB(event){
@@ -46,6 +52,8 @@ function addQuestionToBoard(data){
   let userQuestion = row.QUESTION
   let answer = row.ANSWER
 
+  console.log(data)
+
   if (row.ANSWER = "undefined"){
     answer = "Question not answered"
   }
@@ -55,6 +63,7 @@ function addQuestionToBoard(data){
   let pElement = document.createElement("p")
 
   answerQuestionButton.innerText = "Answer Question"
+  answerQuestionButton.className = "questionButton"
   pElement.innerText = username + " : " + userQuestion;
   questionDiv.appendChild(pElement)
 

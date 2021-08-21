@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/boilerplate.css">
-  <title>Live Chat</title>
-</head>
-<body>
-  <div class="navbar">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/boilerplate.css">
+    <title>Live Chat</title>
+  </head>
+    <div class="navbar">
   <a href="/index.html">Home</a>
   <a href="/live.html">Chat</a>
   <div class="dropdown">
@@ -45,9 +44,9 @@
         </div>
         <div class="column">
           <h3>Strings</h3>
-          <a href="strings/strings.html">Intro to Strings</a>
-          <a href="strings/strings1.html">Strings 1</a>
-          <a href="strings/strings2.html">Strings 2</a>
+          <a href="Strings/strings.html">Intro to Strings</a>
+          <a href="Strings/strings1.html">Strings 1</a>
+          <a href="Strings/strings2.html">Strings 2</a>
         </div>
           <div class="column">
           <h3>Arrays</h3>
@@ -59,57 +58,57 @@
     </div>
     
   </div> 
-  </div>
-
-  <div id = "allQuestions">
-
-  </div>
- 
-
-  <div id = "quesitonContainer">
-    <div>
-      <label for="name">Name:</label>
-      <input id = "name" type="text">
     </div>
-    <div>
-      <label for="question">Question</label>
-      <input id = "question" type="text">
+
+    <div id = "allQuestions">
+
     </div>
-    <button id = "submitButton">Submit Question</button>
-
-   
-  </div>
-
   
 
+    <div id = "quesitonContainer">
+      <div>
+        <label for="name">Name:</label>
+        <input id = "name" type="text">
+      </div>
+      <div>
+        <label for="question">Question</label>
+        <input id = "question" type="text">
+      </div>
+      <button id = "submitButton">Submit Question</button>
 
-  
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    
+    </div>
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    
 
-  <script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-      apiKey: "AIzaSyDnrvB6_h1IRK7CpySlEsSafsuPFhN2bIk",
-      authDomain: "questions-chat.firebaseapp.com",
-      projectId: "questions-chat",
-      storageBucket: "questions-chat.appspot.com",
-      messagingSenderId: "770410692504",
-      appId: "1:770410692504:web:1881b6be1d638ab24035ed",
-      measurementId: "G-4QDBPDNT2E"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
-  
-  <script src="live.js" defer></script>  
-</body>
+
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyDnrvB6_h1IRK7CpySlEsSafsuPFhN2bIk",
+        authDomain: "questions-chat.firebaseapp.com",
+        projectId: "questions-chat",
+        storageBucket: "questions-chat.appspot.com",
+        messagingSenderId: "770410692504",
+        appId: "1:770410692504:web:1881b6be1d638ab24035ed",
+        measurementId: "G-4QDBPDNT2E"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    
+    <script src="live.js" defer></script>  
+  </body>
 </html>

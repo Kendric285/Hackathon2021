@@ -1,4 +1,10 @@
 .info {
   text-align: center;
-  font-size: large;
+  font-size: x-large;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.subheader {
+  font-size: 2.5rem;
 }

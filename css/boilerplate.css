@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
 html, body{
   margin: 0;
   background-color: rgb(171, 214, 255);
-  color: green;
+  font-family: 'Source Sans Pro'
 }
 
 * {
@@ -9,8 +11,8 @@ html, body{
 }
 
 .header {
-  text-align: center;
-  text-shadow: rgb(146, 146, 146) .3rem .3rem;
+  margin-left: 4rem;
+  text-shadow: rgba(146, 146, 146, 0.781) .3rem .3rem;
   font-size: 4rem;
 }
 
@@ -51,7 +53,7 @@ html, body{
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: rgb(8, 162, 189);
 }
 
 .dropdown-content {
@@ -65,7 +67,7 @@ html, body{
 }
 
 .dropdown-content .header {
-  background: red;
+  background: rgb(21, 223, 172);
   padding: 16px;
   color: white;
 }
