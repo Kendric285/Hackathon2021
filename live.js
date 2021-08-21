@@ -7,25 +7,28 @@ let question = document.getElementById("question")
 
 const d = new Date();
 
-database.on("value", addIDs)
+// database.on("value", addIDs)
 
-function addIDs(value) {
-    let info = value.val();
-    let everything = Object.keys(info)
-    let allButtons = document.querySelectorAll(".questionButton")
+// function addIDs(value) {
+//     let info = value.val();
+//     let everything = Object.keys(info)
+//     let allButtons = document.querySelectorAll(".questionButton")
+//     let allInputs = document.querySelectorAll(".answerInput")
     
-    for(i in allButtons){
-      allButtons[i].id = everything[i]
-    }
-    // console.log(everything);
-    // console.log(info)
+//     for(i in allButtons){
+//       allButtons[i].id = everything[i]
+//       allInputs[i].id = "input"+everything[i]
+//       allButtons[i].onclick = onClick
+//     }
+//     // console.log(everything);
+//     // console.log(info)
 
-    // for (i in info) {
-    //     let k = info[i];
-    //     console.log(k.NAME)
+//     // for (i in info) {
+//     //     let k = info[i];
+//     //     console.log(k.NAME)
        
-    // }
-}
+//     // }
+// }
 
 submitButton.onclick = function updateDB(event){
   event.preventDefault();
@@ -44,31 +47,72 @@ submitButton.onclick = function updateDB(event){
   database.push(value)
 }
 
-database.on("child_added", addQuestionToBoard)
+database.on("value", addQuestionToBoard)
 
 function addQuestionToBoard(data){
-  let row = data.val();
-  let username = row.NAME
-  let userQuestion = row.QUESTION
-  let answer = row.ANSWER
-
-  console.log(data)
-
-  if (row.ANSWER = "undefined"){
-    answer = "Question not answered"
-  }
-
+  var questions = data.val();
+  var keys = Object.keys(questions);
   let questionDiv = document.createElement("div")
-  let answerQuestionButton = document.createElement("button")
-  let pElement = document.createElement("p")
+  messageContainer.innerHTML = ""
+  //console.log(keys);
+  for (var i = 0; i < keys.length; i++) {
+    var k = keys[i];
+    var name = questions[k].NAME;
+    var question = questions[k].QUESTION;
+    var answer = questions[k].ANSWER
+    //console.log(initials, score);
+    let questionDiv = document.createElement("div")
+    let answerQuestionButton = document.createElement("button")
+    let pElement = document.createElement("p")
+    let answerInput = document.createElement("input")
 
-  answerQuestionButton.innerText = "Answer Question"
-  answerQuestionButton.className = "questionButton"
-  pElement.innerText = username + " : " + userQuestion;
-  questionDiv.appendChild(pElement)
+    let correctAnswer = document.createElement("p")
+    correctAnswer.innerHTML = "Answer: " + answer
 
-  if (row.ANSWER = "undefined"){
-    questionDiv.appendChild(answerQuestionButton)
+    answerQuestionButton.innerText = "Answer Question"
+    answerQuestionButton.className = "questionButton"
+    pElement.innerText = name + " : " + question;
+    questionDiv.appendChild(pElement)
+
+    answerInput.className = "answerInput"
+
+    if (answer == ""){
+      answerQuestionButton.style.visibility = "visible"
+      answerInput.style.visibility = "visible"
+      questionDiv.appendChild(answerInput)
+      questionDiv.appendChild(answerQuestionButton)
+    }else{
+      answerQuestionButton.style.visibility = "hidden"
+      answerQuestionButton.style.display = "none"
+      answerInput.style.visibility = "hidden"
+      answerInput.style.display = "none"
+      questionDiv.appendChild(correctAnswer)
+      questionDiv.appendChild(answerInput)
+      questionDiv.appendChild(answerQuestionButton)
+    }
+    questionDiv.style.border = "8px solid rgb(24, 27, 43)"
+    messageContainer.appendChild(questionDiv)
   }
-  messageContainer.appendChild(questionDiv)
+  let everything = Object.keys(questions)
+  let allButtons = document.querySelectorAll(".questionButton")
+  let allInputs = document.querySelectorAll(".answerInput")
+    
+  for(i in allButtons){
+    allButtons[i].id = everything[i]
+    allInputs[i].id = "input"+everything[i]
+    allButtons[i].onclick = onClick
+  }
+
+}
+
+const onClick = function() {
+  let id = this.id
+  console.log(id)
+  let input = document.getElementById("input" + id)
+  let answer = input.value
+  console.log(input.value)
+  input.value = ""
+  firebase.database().ref('questions/' + id).update({
+      ANSWER: answer
+  });
 }
