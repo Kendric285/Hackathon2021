@@ -7,6 +7,10 @@ let question = document.getElementById("question")
 
 const d = new Date();
 
+var box = document.getElementById('allQuestions');
+
+box.scrollTop = box.scrollHeight;
+
 // database.on("value", addIDs)
 
 // function addIDs(value) {
@@ -100,7 +104,8 @@ function addQuestionToBoard(data){
       questionDiv.appendChild(answerInput)
       questionDiv.appendChild(answerQuestionButton)
     }
-    questionDiv.style.border = "1px solid rgb(24, 27, 43)"
+    // questionDiv.style.border = "1px solid rgb(24, 27, 43)"
+    questionDiv.style.backgroundColor = "white"
     questionDiv.style.paddingTop = "10px"
     questionDiv.style.paddingBottom = "10px"
     questionDiv.style.paddingLeft = "10px"
