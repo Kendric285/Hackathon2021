@@ -35,16 +35,26 @@ submitButton.onclick = function updateDB(event){
   let username = name.value;
   let userQuestion = question.value;
 
+  console.log(username,userQuestion)
+
+  if(username == ""){
+    alert("Put your Name")
+  }
+  else if(userQuestion == ""){
+    alert("Enter a question")
+  }
+  else{
+    
+    let value = {
+      NAME: username,
+      QUESTION: userQuestion,
+      ANSWER: ""
+    }
+    database.push(value)
+  }
   name.value = ""
   question.value = ""
 
-  let value = {
-    NAME: username,
-    QUESTION: userQuestion,
-    ANSWER: ""
-  }
-
-  database.push(value)
 }
 
 database.on("value", addQuestionToBoard)
@@ -90,7 +100,13 @@ function addQuestionToBoard(data){
       questionDiv.appendChild(answerInput)
       questionDiv.appendChild(answerQuestionButton)
     }
-    questionDiv.style.border = "8px solid rgb(24, 27, 43)"
+    questionDiv.style.border = "1px solid rgb(24, 27, 43)"
+    questionDiv.style.paddingTop = "10px"
+    questionDiv.style.paddingBottom = "10px"
+    questionDiv.style.paddingLeft = "10px"
+    questionDiv.style.marginTop = "10px"
+
+    
     messageContainer.appendChild(questionDiv)
   }
   let everything = Object.keys(questions)
@@ -115,4 +131,12 @@ const onClick = function() {
   firebase.database().ref('questions/' + id).update({
       ANSWER: answer
   });
+}
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
 }

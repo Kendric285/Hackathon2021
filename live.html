@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/boilerplate.css">
+    <link rel="stylesheet" href="live.css">
     <title>Live Chat</title>
   </head>
     <div class="navbar">
@@ -60,11 +61,27 @@
   </div> 
     </div>
 
-    <div id = "allQuestions">
+    <div id = "allQuestions" style="width: 75%">
 
     </div>
+    <button class="open-button" onclick="openForm()">Chat</button>
 
-    <div id = "quesitonContainer">
+    <div class="chat-popup" id="myForm">
+      <form  class="form-container">
+        <h1>Ask Question</h1>
+
+        <label for="msg"><b>Name</b></label>
+        <textarea placeholder="Type name.." name="msg" id = "name" required></textarea>
+
+        <label for="msg"><b>Question</b></label>
+        <textarea placeholder="Type question.." name="msg" id = "question" required></textarea>
+
+        <button class="btn" id = "submitButton">Send</button>
+        <button class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+
+    <!-- <div id = "quesitonContainer">
       <div>
         <label for="name">Name:</label>
         <input id = "name" type="text">
@@ -76,7 +93,8 @@
       <button id = "submitButton">Submit Question</button>
 
     
-    </div>
+    </div> -->
+
 
     
 
@@ -109,5 +127,9 @@
     </script>
     
     <script src="live.js" defer></script>  
+
+ <style>
+
+ </style>
   </body>
 </html>

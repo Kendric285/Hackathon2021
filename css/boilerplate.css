@@ -112,11 +112,48 @@ html, body{
   justify-content: center;
 }
 
-.live-chat {
-  border-radius: 2.5rem;
-  padding: 1rem;
-  width: 25%
+@keyframes expand {
+  from {
+    box-shadow: rgb(180, 179, 179) 0rem 0rem;
+  }
+
+  to {
+    box-shadow: rgb(180, 179, 179) 0.4rem 0.4rem;
+  }
 }
+
+@keyframes retract {
+  from {
+    box-shadow: rgb(180, 179, 179) 0.4rem 0.4rem;
+  }
+
+  to {
+    box-shadow: rgb(180, 179, 179) 0rem 0rem;
+  }
+}
+
+.live-chat {
+  border-radius: 1rem;
+  border: black solid 0.2rem;
+  padding: 1rem;
+  width: 25%;
+  color: white;
+  background-color: rgb(240, 6, 57);
+  font-weight: bold;
+}
+
+.live-chat:hover {
+  animation: expand 0.5s;
+  box-shadow: rgb(180, 179, 179) .4rem .4rem;
+  cursor: hand;
+}
+
+.live-chat:not(:hover) {
+  animation: retract 0.5s;
+  box-shadow: rgb(180, 179, 179) 0rem 0rem;
+  cursor: default;
+}
+
 
 iframe {
   width: 100%;
